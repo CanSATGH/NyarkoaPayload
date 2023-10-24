@@ -1,8 +1,7 @@
-#include <Arduino.h>
-#include <SoftwareSerial.h>
-
 #ifndef NYARKOA_PAYLOAD_H
 #define NYARKOA_PAYLOAD_H
+#include <Arduino.h>
+#include <SoftwareSerial.h>
 
 struct Response {
   bool isOk;
@@ -99,13 +98,13 @@ class NyarkoaPayload {
   const int UNASSIGNED_PIN{-1};
   CommUART commUARTPins = {.Rx = 5, .Tx = 4};
 
-  bool pinInfo(byte pin);  
-  void clearSerial();  
+  bool pinInfo(byte pin);
+  void clearSerial();
   Response executeCmd(String cmd);
-  Response request(String req);  
+  Response request(String req);
   void transmit(String data);
   String receive();
-  Response connect();  
+  Response connect();
   unsigned int readADC(byte pin);
 
  public:
@@ -141,7 +140,6 @@ class NyarkoaPayload {
   // Delete copy constructor
   NyarkoaPayload(const NyarkoaPayload &obj) = delete;
   static NyarkoaPayload getInstance();
-
 
   // utility functions
   void debug(String text, bool newline = true);

@@ -1,8 +1,7 @@
-#include <Arduino.h>
-#include <SoftwareSerial.h>
-
 #ifndef NYARKOA_PAYLOAD_TEST_H
 #define NYARKOA_PAYLOAD_TEST_H
+#include <Arduino.h>
+#include <SoftwareSerial.h>
 
 struct Response {
   bool isOk;
