@@ -86,7 +86,7 @@ void loop() {
 
 ---
 
-## `<span style="color: green;">`Special `<span style="color: teal;">`structs used in library
+## ```<span style="color: green;">Special <span style="color: teal;">structs used in library```
 
 ### `<span style="color: purple;">`Response
 
