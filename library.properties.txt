@@ -1,0 +1,10 @@
+name=Nyarkoa Library
+version=1.0.0
+author=Eric Obeng (Profesir)
+maintainer=Eric Obeng (Profesir)
+sentence=An Arduino library for NyarkoaPayloadTest and NyarkoaPayload classes.
+paragraph=The Nyarkoa Library provides easy-to-use functionality for NyarkoaPayloadTest and NyarkoaPayload classes, simplifying communication and control with the Nyarkoa Payload hardware. This library is designed to assist in CanSat and satellite payload development, offering a range of features to enhance your projects.
+category=Communication
+url=https://github.com/cansatghana/OpenCanSatGH.git
+keywords=Nyarkoa, Payload, CanSat, Satellite, Communication, Sensor
+architectures=avr
