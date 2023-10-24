@@ -103,7 +103,7 @@ void loop() {
 
 ---
 
-### Special Structs Used in Library
+### Special `structs` Used in Library
 
 #### Response
 
