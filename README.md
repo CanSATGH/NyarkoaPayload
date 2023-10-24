@@ -1,69 +1,69 @@
-# `<span style="color: blue;">`NyarkoaPayloadTest Library
+# NyarkoaPayloadTest Library
 
-The `<span style="color: blue;">`NyarkoaPayloadTest
-Library provides an interface for interacting with the Nyarkoa CanSAT module by sending commands to the Communication and Control Module. This library streamlines user interaction, allowing users to focus on the payload and mission. All integrated sensors and systems are accessible through simple function calls.
+The **NyarkoaPayloadTest Library** provides an interface for interacting with the Nyarkoa CanSAT module by sending commands to the Communication and Control Module. This library streamlines user interaction, allowing users to focus on the payload and mission. All integrated sensors and systems are accessible through simple function calls.
 
-This documentation aims to instruct you on using the NyarkoaPayloadTest library. It's essential to understand that this library serves as a simulation of the actual library, `<span style="color: purple;">`NyarkoaPayload, acting as a sandbox or testbed. Its purpose is make it possible for users to work with Nyarkoa Payload module, excluding other Nyarkoa CanSAT components. Once the programing is completed and tested. The user can just switch from NyarkoaPayloadTest library to the NyarkoaPayload library wihout much changes.
+This documentation aims to instruct you on using the NyarkoaPayloadTest library. It's essential to understand that this library serves as a simulation of the actual library, **NyarkoaPayload**, acting as a sandbox or testbed. Its purpose is to make it possible for users to work with the Nyarkoa Payload module, excluding other Nyarkoa CanSAT components. Once the programming is completed and tested, the user can just switch from NyarkoaPayloadTest library to the NyarkoaPayload library without many changes.
 
-All control and communication requests will return `<span style="color: purple;">`a dummy response. Furthermore, the library provides an option to intentionally generate an error response by setting the `<span style="color: purple;">`generateError  default parameter to true. Consequently, any method accepting the generateError argument can produce a sample error response.
+All control and communication requests will return **a dummy response**. Furthermore, the library provides an option to intentionally generate an error response by setting the **generateError** default parameter to true. Consequently, any method accepting the generateError argument can produce a sample error response.
 
-## `<span style="color: green;">`Installation
+## Installation
 
 To install the library follow these steps:
 
-1. Download the latest release of the NyarkoaPayload library from the `<span style="color: blue;">`[GitHub repository](https://github.com/cansatghana/OpenCanSatGH).
+1. Download the latest release of the NyarkoaPayload library from the [GitHub repository](https://github.com/cansatghana/OpenCanSatGH).
 2. Open the Arduino IDE.
-3. In the Arduino IDE, go to the `<span style="color: green;">`**Sketch** menu and select `<span style="color: green;">`**Include Library > Add .ZIP Library...**.
+3. In the Arduino IDE, go to the **Sketch** menu and select **Include Library > Add .ZIP Library...**.
 4. Locate the downloaded NyarkoaPayload library ZIP file on your computer and select it.
-5. The library will be `<span style="color: green;">`installed.
+5. The library will be **installed**.
 
-## `<span style="color: green;">`Verify Installation
+## Verify Installation
 
 To verify that the NyarkoaPayload library has been successfully installed, follow these steps:
 
 1. Open the Arduino IDE.
 2. Create a new sketch (or open an existing one).
-3. Go to the `<span style="color: green;">`**Sketch** menu and look for an entry with the name `<span style="color: blue;">`"NyarkoaPayload."
-4. If you see `<span style="color: blue;">`"NyarkoaPayload," it means the library has been `<span style="color: green;">`installed successfully.
+3. Go to the **Sketch** menu and look for an entry with the name **"NyarkoaPayload."**
+4. If you see **"NyarkoaPayload,"** it means the library has been **installed** successfully.
 
 Now you can start using the NyarkoaPayload library for your CanSAT projects in the Arduino IDE.
 
 ---
 
-### `<span style="color: magenta;">`Special Notes. Please, read the following carefully
+### Special Notes. Please, read the following carefully
 
-## Special Note: Using the  `NyarkoaPayload Library` in `Test` and `Live` Environments
+## Special Note: Using the  **NyarkoaPayload Library** in **Test** and **Live** Environments
 
-The `<span style="color: cyan;">`NyarkoaPayload library  offers the flexibility to work with both `test` and `live` environments, providing a valuable toolkit for developing your CanSAT projects. Understanding when to use the test class, `<span style="color: orange;">`NyarkoaPayloadTest, and when to switch to the live class, `<span style="color: purple;">`NyarkoaPayload, is essential.
+The **NyarkoaPayload library** offers the flexibility to work with both **test** and **live** environments, providing a valuable toolkit for developing your CanSAT projects. Understanding when to use the test class, **NyarkoaPayloadTest**, and when to switch to the live class, **NyarkoaPayload**, is essential.
 
-### Test Environment - `<span style="color: orange;">`NyarkoaPayloadTest
+### Test Environment - **NyarkoaPayloadTest**
 
-The test class, `<span style="color: orange;">`NyarkoaPayloadTest, is specifically designed for use in a controlled test environment. It is ideal when you are working on the payload component independently, without the complete Nyarkoa CanSAT shell. This mode allows you to simulate the entire CanSAT operation as if the full Nyarkoa CanSAT shell were present. Here's how `<span style="color: orange;">`NyarkoaPayloadTest is beneficial:
+The test class, **NyarkoaPayloadTest**, is specifically designed for use in a controlled test environment. It is ideal when you are working on the payload component independently, without the complete Nyarkoa CanSAT shell. This mode allows you to simulate the entire CanSAT operation as if the full Nyarkoa CanSAT shell were present. Here's how **NyarkoaPayloadTest** is beneficial:
 
-- **Prototype Anywhere**: `<span style="color: orange;">`NyarkoaPayloadTest enables you to prototype your CanSAT payload using any compatible `Arduino-Uno-like microcontroller`, not necessarily the Nyarkoa Payload Module. This versatility in development environments is valuable for testing and refining your payload code.
-- **Dummy Data Generation**: In test mode, `<span style="color: orange;">`NyarkoaPayloadTest generates dummy data and responses. This functionality is crucial for emulating real-world scenarios without requiring the complete Nyarkoa CanSAT unit.
+- **Prototype Anywhere**: **NyarkoaPayloadTest** enables you to prototype your CanSAT payload using any compatible Arduino-Uno-like microcontroller, not necessarily the Nyarkoa Payload Module. This versatility in development environments is valuable for testing and refining your payload code.
 
-  - ### Simulating Error Responses
+- **Dummy Data Generation**: In test mode, **NyarkoaPayloadTest** generates dummy data and responses. This functionality is crucial for emulating real-world scenarios without requiring the complete Nyarkoa CanSAT unit.
 
-While using the `<span style="color: orange;">`NyarkoaPayloadTest class, several methods offer the ability to simulate error responses for testing purposes. These methods can accept an additional boolean argument, `<span style="color: teal;">generateError`, which, when set to `<span style="color: teal;">true`, triggers simulated error responses. These methods include:
+### Simulating Error Responses
 
-    -`<span style="color: purple;">`Response `<span style="color: aqua;">`connectToCommModule`<span style="color: white;">`(bool generateError = false)
-    - `<span style="color: purple;">`void `<span style="color: aqua;">`commAction`<span style="color: white;">`(String cmd, bool generateError = false)
-    - `<span style="color: purple;">`String `<span style="color: aqua;">`requestAction`<span style="color: white;">`(String cmd, bool generateError = false)
-    - `<span style="color: purple;">`bool `<span style="color: aqua;">`contactGroundStation`<span style="color: white;">`(String cmd, String payload, bool generateError = false)
-    - `<span style="color: purple;">`String `<span style="color: aqua;">`getDate`<span style="color: white;">`(bool generateError = false)
-    - `<span style="color: purple;">`String `<span style="color: aqua;">`getTime`<span style="color: white;">`(bool generateError = false)
-    - `<span style="color: purple;">`String `<span style="color: aqua;">`getTimestamp`<span style="color: white;">`(bool generateError = false)
-    - `<span style="color:purple;">`String `<span style="color: aqua;">`getTimeAfter`<span style="color: white;">`(int sec = 30, int mins = 0, int hours = 0, int days = 0, bool generateError = false)
-    - `<span style="color: purple;">`MPUData `<span style="color: aqua;">`getMPUData`<span style="color: white;">`(bool generateError = false)
-    - `<span style="color: purple;">`MPLData `<span style="color: aqua;">`getMPLData`<span style="color: white;">`(bool generateError = false)
-    - `<span style="color: purple;">`GPSData `<span style="color: aqua;">`getGPSData`<span style="color: white;">`(bool generateError = false)
+While using the **NyarkoaPayloadTest** class, several methods offer the ability to simulate error responses for testing purposes. These methods can accept an additional boolean argument, **generateError**, which, when set to **true**, triggers simulated error responses. These methods include:
+
+- **Response** **connectToCommModule**(bool generateError = false)
+- **void** **commAction**(String cmd, bool generateError = false)
+- **String** **requestAction**(String cmd, bool generateError = false)
+- **bool** **contactGroundStation**(String cmd, String payload, bool generateError = false)
+- **String** **getDate**(bool generateError = false)
+- **String** **getTime**(bool generateError = false)
+- **String** **getTimestamp**(bool generateError = false)
+- **String** **getTimeAfter**(int sec = 30, int mins = 0, int hours = 0, int days = 0, bool generateError = false)
+- **MPUData** **getMPUData**(bool generateError = false)
+- **MPLData** **getMPLData**(bool generateError = false)
+- **GPSData** **getGPSData**(bool generateError = false)
 
 These features are invaluable for testing and validation of your CanSAT payload and actions, ensuring that your code functions reliably in all scenarios, especially when working with the full Nyarkoa CanSAT device.
 
-- #### `<span style="color: teal;">`Sample Code: How to instantiate the NyarkoaPayloadTest
+- **Sample Code: How to instantiate the NyarkoaPayloadTest**
 
-<pre>
+```cpp
 #include <Arduino.h>
 #include "NyarkoaPayloadTest.h"
 
@@ -77,26 +77,7 @@ void setup() {
 void loop() {
   // Your loop code here
 }
-</pre>
 
-### Transitioning to Live Mode - `<span style="color: purple;">`NyarkoaPayload
-
-Once your payload is ready and tested using `<span style="color: orange;">`NyarkoaPayloadTest, transitioning to the live class, `<span style="color: purple;">`NyarkoaPayload, is straightforward. `<span style="color: purple;">`NyarkoaPayload is intended for use when you have the complete Nyarkoa CanSAT unit at your disposal. It is tailored to interact with the actual hardware of the Nyarkoa CanSAT device.
-
-**Important**: Only use `<span style="color: purple;">`NyarkoaPayload when you have the entire Nyarkoa CanSAT unit ready for operation.
-
-- #### `<span style="color: teal;">`Sample Code: How to instantiate the NyarkoaPayload
-
-<pre>
-#include <Arduino.h>
-#include "NyarkoaPayload.h"
-
-void setup() {
-  // Initialize the NyarkoaPayload instance
-  NyarkoaPayload nyarkoa;
-
-  // Your setup code here
-}
 
 void loop() {
   // Your loop code here
