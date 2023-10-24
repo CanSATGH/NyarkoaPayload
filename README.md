@@ -1,12 +1,35 @@
-# NyarkoaPayloadTest Library
+# Nyarkoa CanSAT Shells
 
-The NyarkoaPayloadTest Library provides an interface for interacting with the Nyarkoa CanSAT module by sending commands to the Communication and Control Module. This library streamlines user interaction, allowing users to focus on the payload and mission. All integrated sensors and systems are accessible through simple function calls.
+The Nyarkoa CanSAT Shell is a project by CanSAT Ghana, designed by Eric Obeng (Profesir) from Erictronics Systems, in collaboration with Solomon Apekey of Xavier Space Solutions. This project marks CanSAT Ghana's commitment to advancing space science education in Ghana.
 
-This documentation aims to instruct you on using the NyarkoaPayloadTest library. It's essential to understand that this library serves as a simulation of the actual library, NyarkoaPayload, acting as a sandbox or testbed. Its purpose is to make it possible for users to work with the Nyarkoa Payload module, excluding other Nyarkoa CanSAT components. Once the programming is completed and tested, the user can switch from NyarkoaPayloadTest library to the NyarkoaPayload library without many changes.
+The CanSAT shell simplifies the process for users to focus on creating remarkable payloads for their missions. The shells come pre-integrated with `MPU6050`, `MPL3112A`, `RTC`, and `GPS` sensors. This means that the shells can be used to perform basic missions without requiring an external payload. They are optimized for balloon launches and include a balloon ejection mechanism that can be triggered remotely or programmatically. Additionally, the shell features a built-in buzzer that serves as a beacon.
+
+Communication is facilitated via `LoRa` at a frequency of `433MHz`, which is an open frequency in Ghana and many other countries. You can modify the frequency if necessary. The CanSAT also supports communication over `WiFi`. It is equipped with an integrated `microSD` card for local data logging.
+
+The shell includes a `battery manager and power supply unit` to ensure that the CanSAT can operate for an extended period during a mission after being charged.
+
+The CanSAT shell consists of four independent units:
+
+1. The `Communication and Control Unit` (insert image here)
+![Nyarkoa CanSAT Communication and Control unit top](images/comm_module_top.jpg)
+2. The `Payload Controller and Shield` (insert image here)
+![Nyarkoa CanSAT Communication and Control unit bottom](images/comm_module_bottom.jpg)
+3. The `Battery Manager and Power Supply Unit`
+4. The `GPS and Ejector Unit`
+![Nyarkoa CanSAT GPS and Ejector unit](images/gps_ejector.jpg)
+
+Operators can configure, control, and monitor the CanSAT from the ground station using our mission application.
+![Nyarkoa CanSAT operator's application](images/operator_app.jpg)
+
+## NyarkoaPayload Library
+
+The NyarkoaPayload Library provides an interface for interacting with the Nyarkoa CanSAT module by sending commands to the Communication and Control Module. This library streamlines user interaction, allowing users to focus on the payload and mission. All integrated sensors and systems are accessible through simple function calls.
+
+This documentation aims to instruct you on using the NyarkoaPayload library. It's essential to understand that this library serves as a simulation of the actual library, NyarkoaPayload, acting as a sandbox or testbed. Its purpose is to make it possible for users to work with the Nyarkoa Payload module, excluding other Nyarkoa CanSAT components. Once the programming is completed and tested, the user can switch from NyarkoaPayload library to the NyarkoaPayload library without many changes.
 
 All control and communication requests will return a dummy response. Furthermore, the library provides an option to intentionally generate an error response by setting the `generateError` default parameter to true. Consequently, any method accepting the `generateError` argument can produce a sample error response.
 
-## Installation
+### Installation
 
 To install the library, follow these steps:
 
@@ -16,7 +39,7 @@ To install the library, follow these steps:
 4. Locate the downloaded NyarkoaPayload library ZIP file on your computer and select it.
 5. The library will be installed.
 
-## Verify Installation
+#### Verify Installation
 
 To verify that the NyarkoaPayload library has been successfully installed, follow these steps:
 
@@ -31,11 +54,11 @@ Now you can start using the NyarkoaPayload library for your CanSAT projects in t
 
 ### Special Notes. Please, read the following carefully
 
-## Special Note: Using the NyarkoaPayload Library in Test and Live Environments
+#### Special Note: Using the NyarkoaPayload Library in Test and Live Environments
 
 The NyarkoaPayload library offers the flexibility to work with both test and live environments, providing a valuable toolkit for developing your CanSAT projects. Understanding when to use the test class, NyarkoaPayloadTest, and when to switch to the live class, NyarkoaPayload, is essential.
 
-### Test Environment - NyarkoaPayloadTest
+#### Test Environment - NyarkoaPayloadTest
 
 The test class, NyarkoaPayloadTest, is specifically designed for use in a controlled test environment. It is ideal when you are working on the payload component independently, without the complete Nyarkoa CanSAT shell. This mode allows you to simulate the entire CanSAT operation as if the full Nyarkoa CanSAT shell were present. Here's how NyarkoaPayloadTest is beneficial:
 
@@ -80,16 +103,16 @@ void loop() {
 
 ---
 
-## Special Structs Used in Library
+### Special Structs Used in Library
 
-### Response
+#### Response
 
 - **Description:** Represents a response object with a success status and message.
 - **Fields:**
   - `isOk` (bool): Indicates whether the operation was successful (true) or not (false).
   - `message` (String): A message describing the response.
 
-### MPUData
+#### MPUData
 
 - **Description:** Represents data from a Motion Processing Unit.
 - **Fields:**
@@ -101,7 +124,7 @@ void loop() {
   - `gyroZ` (float): Gyroscope reading in the Z-axis.
   - `temp` (float): Temperature reading.
 
-### MPLData
+#### MPLData
 
 - **Description:** Represents data from a Micro Pressure and Temperature sensor.
 - **Fields:**
@@ -109,7 +132,7 @@ void loop() {
   - `altitude` (float): Altitude reading.
   - `temperature` (float): Temperature reading.
 
-### GPSData
+#### GPSData
 
 - **Description:** Represents data from a Global Positioning System (GPS).
 - **Fields:**
@@ -121,22 +144,22 @@ void loop() {
   - `speed` (String): Speed information.
   - `distanceFromHome` (String): Distance from a reference location.
 
-## Constructors
+### Constructors
 
-### NyarkoaPayload()
+#### NyarkoaPayload()
 
 - **Description:** Constructor for the NyarkoaPayload class.
-- **Details:** The constructor initializes an instance of the NyarkoaPayloadTest class. When an object of this class is created, it sets up the necessary configurations and prepares the class for communication and control. This is the starting point for using the class, and it ensures that the necessary resources and parameters are properly configured for interaction with the Nyarkoa CanSAT hardware.
+- **Details:** The constructor initializes an instance of the NyarkoaPayload class. When an object of this class is created, it sets up the necessary configurations and prepares the class for communication and control. This is the starting point for using the class, and it ensures that the necessary resources and parameters are properly configured for interaction with the Nyarkoa CanSAT hardware.
 
-#### Sample Code: How to instantiate the NyarkoaPayloadTest
+#### Sample Code: How to instantiate the NyarkoaPayload
 
 ```cpp
 #include <Arduino.h>
-#include "NyarkoaPayloadTest.h"
+#include "NyarkoaPayload.h"
 
 void setup() {
-  // Initialize the NyarkoaPayloadTest instance
-  NyarkoaPayloadTest nyarkoa;
+  // Initialize the NyarkoaPayload instance
+  NyarkoaPayload nyarkoa;
   nyarkoa.activateDevMode();
   nyarkoa.startCommunication();
 
@@ -148,24 +171,24 @@ void loop() {
 }
 ```
 
-## activateProdMode()
+### activateProdMode()
 
 - **Description:** Activate production mode to disable debugging.
 - **Details:** Certainly! Here's a brief description for the `activateDevMode` method:
 
   **Method - activateDevMode():**
 
-  The `activateProdMode` method is used to enable production mode, which disables debugging. When called, it configures the `NyarkoaPayloadTest` class to operate in a mode optimized for production use, suppressing debugging output. This is important when you want to deploy your code in a production environment, ensuring that debugging information does not interfere with the normal operation of the Nyarkoa Payload hardware.
+  The `activateProdMode` method is used to enable production mode, which disables debugging. When called, it configures the `NyarkoaPayload` class to operate in a mode optimized for production use, suppressing debugging output. This is important when you want to deploy your code in a production environment, ensuring that debugging information does not interfere with the normal operation of the Nyarkoa Payload hardware.
 
-- #### Sample Code: How to instantiate the NyarkoaPayloadTest
+- ### Sample Code: How to Use the `activateProdMode` Method
 
     ```cpp
     #include <Arduino.h>
-    #include "NyarkoaPayloadTest.h"
+    #include "NyarkoaPayload.h"
 
     void setup() {
-      // Initialize the NyarkoaPayloadTest instance
-      NyarkoaPayloadTest nyarkoa;
+      // Initialize the NyarkoaPayload instance
+      NyarkoaPayload nyarkoa;
 
       // Activate production mode to disable debugging
       nyarkoa.activateProdMode();
@@ -191,11 +214,11 @@ void loop() {
 
     ```cpp
     #include <Arduino.h>
-    #include "NyarkoaPayloadTest.h"
+    #include "NyarkoaPayload.h"
 
     void setup() {
-      // Initialize the NyarkoaPayloadTest instance
-      NyarkoaPayloadTest nyarkoa;
+      // Initialize the NyarkoaPayload instance
+      NyarkoaPayload nyarkoa;
 
       // Call the resetFunc method to reset the payload module
       nyarkoa.resetPayload();
@@ -219,11 +242,11 @@ void loop() {
 
     ```cpp
     #include <Arduino.h>
-    #include "NyarkoaPayloadTest.h"
+    #include "NyarkoaPayload.h"
 
     void setup() {
-      // Initialize the NyarkoaPayloadTest instance
-      NyarkoaPayloadTest nyarkoa;
+      // Initialize the NyarkoaPayload instance
+      NyarkoaPayload nyarkoa;
 
       // Define the main string and substring to search for
       String mainString = "Hello, world!";
@@ -259,11 +282,11 @@ void loop() {
 
     ```cpp
     #include <Arduino.h>
-    #include "NyarkoaPayloadTest.h"
+    #include "NyarkoaPayload.h"
 
     void setup() {
-      // Initialize the NyarkoaPayloadTest instance
-      NyarkoaPayloadTest nyarkoa;
+      // Initialize the NyarkoaPayload instance
+      NyarkoaPayload nyarkoa;
 
       // Define the data to be hashed
       String dataToHash = "Hello, world!";
@@ -296,11 +319,11 @@ void loop() {
 
     ```cpp
     #include <Arduino.h>
-    #include "NyarkoaPayloadTest.h"
+    #include "NyarkoaPayload.h"
 
     void setup() {
-      // Initialize the NyarkoaPayloadTest instance
-      NyarkoaPayloadTest nyarkoa;
+      // Initialize the NyarkoaPayload instance
+      NyarkoaPayload nyarkoa;
 
       // Define the data and the expected hash
       String data = "Hello, world!";
