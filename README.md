@@ -1,27 +1,4 @@
-# Nyarkoa CanSAT Shells
-
-The Nyarkoa CanSAT Shell is a project by CanSAT Ghana, designed by Eric Obeng (Profesir) from Erictronics Systems, in collaboration with Solomon Apekey of Xavier Space Solutions. This project marks CanSAT Ghana's commitment to advancing space science education in Ghana.
-
-The CanSAT shell simplifies the process for users to focus on creating remarkable payloads for their missions. The shells come pre-integrated with `MPU6050`, `MPL3112A`, `RTC`, and `GPS` sensors. This means that the shells can be used to perform basic missions without requiring an external payload. They are optimized for balloon launches and include a balloon ejection mechanism that can be triggered remotely or programmatically. Additionally, the shell features a built-in buzzer that serves as a beacon.
-
-Communication is facilitated via `LoRa` at a frequency of `433MHz`, which is an open frequency in Ghana and many other countries. You can modify the frequency if necessary. The CanSAT also supports communication over `WiFi`. It is equipped with an integrated `microSD` card for local data logging.
-
-The shell includes a `battery manager and power supply unit` to ensure that the CanSAT can operate for an extended period during a mission after being charged.
-
-The CanSAT shell consists of four independent units:
-
-1. The `Communication and Control Unit`
-![Nyarkoa CanSAT Communication and Control unit top](images/comm_module_top.jpg)
-2. The `Payload Controller and Shield`
-![Nyarkoa CanSAT Communication and Control unit bottom](images/comm_module_bottom.jpg)
-3. The `Battery Manager and Power Supply Unit`
-4. The `GPS and Ejector Unit`
-![Nyarkoa CanSAT GPS and Ejector unit](images/gps_ejector.jpg)
-
-Operators can configure, control, and monitor the CanSAT from the ground station using our mission application.
-![Nyarkoa CanSAT operator's application](images/operator_app.jpg)
-
-## NyarkoaPayload Library
+# NyarkoaPayload Library
 
 The NyarkoaPayload Library provides an interface for interacting with the Nyarkoa CanSAT module by sending commands to the Communication and Control Module. This library streamlines user interaction, allowing users to focus on the payload and mission. All integrated sensors and systems are accessible through simple function calls.
 
@@ -29,7 +6,7 @@ This documentation aims to instruct you on using the NyarkoaPayload library. It'
 
 All control and communication requests will return a dummy response. Furthermore, the library provides an option to intentionally generate an error response by setting the `generateError` default parameter to true. Consequently, any method accepting the `generateError` argument can produce a sample error response.
 
-### Installation
+## Installation
 
 To install the library, follow these steps:
 
@@ -39,7 +16,7 @@ To install the library, follow these steps:
 4. Locate the downloaded NyarkoaPayload library ZIP file on your computer and select it.
 5. The library will be installed.
 
-#### Verify Installation
+### Verify Installation
 
 To verify that the NyarkoaPayload library has been successfully installed, follow these steps:
 
@@ -182,24 +159,24 @@ void loop() {
 
 - ### Sample Code: How to Use the `activateProdMode` Method
 
-    ```cpp
-    #include <Arduino.h>
-    #include "NyarkoaPayload.h"
+  ```cpp
+  #include <Arduino.h>
+  #include "NyarkoaPayload.h"
 
-    void setup() {
-      // Initialize the NyarkoaPayload instance
-      NyarkoaPayload nyarkoa;
+  void setup() {
+    // Initialize the NyarkoaPayload instance
+    NyarkoaPayload nyarkoa;
 
-      // Activate production mode to disable debugging
-      nyarkoa.activateProdMode();
+    // Activate production mode to disable debugging
+    nyarkoa.activateProdMode();
 
-      // Your setup code here
-    }
+    // Your setup code here
+  }
 
-    void loop() {
-      // Your loop code here
-    }
-    ```
+  void loop() {
+    // Your loop code here
+  }
+  ```
 
 ---
 
@@ -212,22 +189,22 @@ void loop() {
 
 - #### Sample Code: How to Use the `resetPayload` Method
 
-    ```cpp
-    #include <Arduino.h>
-    #include "NyarkoaPayload.h"
+  ```cpp
+  #include <Arduino.h>
+  #include "NyarkoaPayload.h"
 
-    void setup() {
-      // Initialize the NyarkoaPayload instance
-      NyarkoaPayload nyarkoa;
+  void setup() {
+    // Initialize the NyarkoaPayload instance
+    NyarkoaPayload nyarkoa;
 
-      // Call the resetFunc method to reset the payload module
-      nyarkoa.resetPayload();
-    }
+    // Call the resetFunc method to reset the payload module
+    nyarkoa.resetPayload();
+  }
 
-    void loop() {
-      // Your loop code here
-    }
-    ```
+  void loop() {
+    // Your loop code here
+  }
+  ```
 
 ### contains(String str, String substr)
 
@@ -240,35 +217,35 @@ void loop() {
 
 - #### Sample Code: How to Use the `contains` Method
 
-    ```cpp
-    #include <Arduino.h>
-    #include "NyarkoaPayload.h"
+  ```cpp
+  #include <Arduino.h>
+  #include "NyarkoaPayload.h"
 
-    void setup() {
-      // Initialize the NyarkoaPayload instance
-      NyarkoaPayload nyarkoa;
+  void setup() {
+    // Initialize the NyarkoaPayload instance
+    NyarkoaPayload nyarkoa;
 
-      // Define the main string and substring to search for
-      String mainString = "Hello, world!";
-      String subString = "world";
+    // Define the main string and substring to search for
+    String mainString = "Hello, world!";
+    String subString = "world";
 
-      // Check if the main string contains the substring
-      bool result = nyarkoa.contains(mainString, subString);
+    // Check if the main string contains the substring
+    bool result = nyarkoa.contains(mainString, subString);
 
-      // Output the result
-      if (result) {
-        Serial.println("The main string contains the substring.");
-      } else {
-        Serial.println("The main string does not contain the substring.");
-      }
-
-      // Your setup code here
+    // Output the result
+    if (result) {
+      Serial.println("The main string contains the substring.");
+    } else {
+      Serial.println("The main string does not contain the substring.");
     }
 
-    void loop() {
-      // Your loop code here
-    }
-    ```
+    // Your setup code here
+  }
+
+  void loop() {
+    // Your loop code here
+  }
+  ```
 
 ### simpleHash(String data)
 
@@ -280,30 +257,30 @@ void loop() {
 
 - #### Sample Code: How to Use the `simpleHash` Method
 
-    ```cpp
-    #include <Arduino.h>
-    #include "NyarkoaPayload.h"
+  ```cpp
+  #include <Arduino.h>
+  #include "NyarkoaPayload.h"
 
-    void setup() {
-      // Initialize the NyarkoaPayload instance
-      NyarkoaPayload nyarkoa;
+  void setup() {
+    // Initialize the NyarkoaPayload instance
+    NyarkoaPayload nyarkoa;
 
-      // Define the data to be hashed
-      String dataToHash = "Hello, world!";
+    // Define the data to be hashed
+    String dataToHash = "Hello, world!";
 
-      // Generate a simple hash
-      String hash = nyarkoa.simpleHash(dataToHash);
+    // Generate a simple hash
+    String hash = nyarkoa.simpleHash(dataToHash);
 
-      // Output the hash
-      Serial.println("Generated Hash: " + hash);
+    // Output the hash
+    Serial.println("Generated Hash: " + hash);
 
-      // Your setup code here
-    }
+    // Your setup code here
+  }
 
-    void loop() {
-      // Your loop code here
-    }
-    ```
+  void loop() {
+    // Your loop code here
+  }
+  ```
 
 ### compareHash(String data, String hash)
 
@@ -317,35 +294,35 @@ void loop() {
 
 - #### Sample Code: How to Use the `compareHash` Method
 
-    ```cpp
-    #include <Arduino.h>
-    #include "NyarkoaPayload.h"
+  ```cpp
+  #include <Arduino.h>
+  #include "NyarkoaPayload.h"
 
-    void setup() {
-      // Initialize the NyarkoaPayload instance
-      NyarkoaPayload nyarkoa;
+  void setup() {
+    // Initialize the NyarkoaPayload instance
+    NyarkoaPayload nyarkoa;
 
-      // Define the data and the expected hash
-      String data = "Hello, world!";
-      String expectedHash = "123abc"; // Replace with the actual expected hash
+    // Define the data and the expected hash
+    String data = "Hello, world!";
+    String expectedHash = "123abc"; // Replace with the actual expected hash
 
-      // Compare the data with the expected hash
-      bool isDataValid = nyarkoa.compareHash(data, expectedHash);
+    // Compare the data with the expected hash
+    bool isDataValid = nyarkoa.compareHash(data, expectedHash);
 
-      // Check the result
-      if (isDataValid) {
-        Serial.println("Data integrity is verified.");
-      } else {
-        Serial.println("Data integrity check failed.");
-      }
-
-      // Your setup code here
+    // Check the result
+    if (isDataValid) {
+      Serial.println("Data integrity is verified.");
+    } else {
+      Serial.println("Data integrity check failed.");
     }
 
-    void loop() {
-      // Your loop code here
-    }
-    ```
+    // Your setup code here
+  }
+
+  void loop() {
+    // Your loop code here
+  }
+  ```
 
 ### connectToCommModule()
 
@@ -355,33 +332,33 @@ void loop() {
 
 - #### Sample Code: How to Establish a Connection to the Communication Module
 
-    ```cpp
-    #include <Arduino.h>
-    #include "NyarkoaPayload.h"
+  ```cpp
+  #include <Arduino.h>
+  #include "NyarkoaPayload.h"
 
-    void setup() {
-      // Initialize the NyarkoaPayload instance
-      NyarkoaPayload nyarkoa;
+  void setup() {
+    // Initialize the NyarkoaPayload instance
+    NyarkoaPayload nyarkoa;
 
-      // Establish a connection to the communication module
-      Response connectionResult = nyarkoa.connectToCommModule();
+    // Establish a connection to the communication module
+    Response connectionResult = nyarkoa.connectToCommModule();
 
-      // Check the connection status
-      if (connectionResult.isOk) {
-        Serial.println("Connection to the communication module successful.");
-        Serial.println("Message: " + connectionResult.message);
-      } else {
-        Serial.println("Connection failed.");
-        Serial.println("Error Message: " + connectionResult.message);
-      }
-
-      // Your setup code here
+    // Check the connection status
+    if (connectionResult.isOk) {
+      Serial.println("Connection to the communication module successful.");
+      Serial.println("Message: " + connectionResult.message);
+    } else {
+      Serial.println("Connection failed.");
+      Serial.println("Error Message: " + connectionResult.message);
     }
 
-    void loop() {
-      // Your loop code here
-    }
-    ```
+    // Your setup code here
+  }
+
+  void loop() {
+    // Your loop code here
+  }
+  ```
 
 ## Pin Handling
 
@@ -397,28 +374,28 @@ void loop() {
 
 - #### Sample Code: How to Use the `setPinMode` Method
 
-    ```cpp
-    #include <Arduino.h>
-    #include "NyarkoaPayload.h"
+  ```cpp
+  #include <Arduino.h>
+  #include "NyarkoaPayload.h"
 
-    void setup() {
-      // Initialize the NyarkoaPayload instance
-      NyarkoaPayload nyarkoa;
+  void setup() {
+    // Initialize the NyarkoaPayload instance
+    NyarkoaPayload nyarkoa;
 
-      // Define the digital pin number and mode
-      byte pinNumber = 8;
-      bool isOutputMode = true;  // Set the pin as OUTPUT
+    // Define the digital pin number and mode
+    byte pinNumber = 8;
+    bool isOutputMode = true;  // Set the pin as OUTPUT
 
-      // Set the pin mode
-      nyarkoa.setPinMode(pinNumber, isOutputMode);
+    // Set the pin mode
+    nyarkoa.setPinMode(pinNumber, isOutputMode);
 
-      // Your setup code here
-    }
+    // Your setup code here
+  }
 
-    void loop() {
-      // Your loop code here
-    }
-    ```
+  void loop() {
+    // Your loop code here
+  }
+  ```
 
 ### digitalWrite(byte pin, bool mode)
 
@@ -432,28 +409,28 @@ void loop() {
 
 - #### Sample Code: How to Use the `digitalWrite` Method
 
-    ```cpp
-    #include <Arduino.h>
-    #include "NyarkoaPayload.h"
+  ```cpp
+  #include <Arduino.h>
+  #include "NyarkoaPayload.h"
 
-    void setup() {
-      // Initialize the NyarkoaPayload instance
-      NyarkoaPayload nyarkoa;
+  void setup() {
+    // Initialize the NyarkoaPayload instance
+    NyarkoaPayload nyarkoa;
 
-      // Define the digital pin and mode
-      byte pinNumber = 8;
-      bool outputMode = true;
+    // Define the digital pin and mode
+    byte pinNumber = 8;
+    bool outputMode = true;
 
-      // Set the digital output value
-      nyarkoa.digitalWrite(pinNumber, outputMode);
+    // Set the digital output value
+    nyarkoa.digitalWrite(pinNumber, outputMode);
 
-      // Your setup code here
-    }
+    // Your setup code here
+  }
 
-    void loop() {
-      // Your loop code here
-    }
-    ```
+  void loop() {
+    // Your loop code here
+  }
+  ```
 
 ### setAnalogValue(byte pin, int value)
 
@@ -467,28 +444,28 @@ void loop() {
 
 - #### Sample Code: How to Use the `setAnalogValue` Method
 
-    ```cpp
-    #include <Arduino.h>
-    #include "NyarkoaPayload.h"
+  ```cpp
+  #include <Arduino.h>
+  #include "NyarkoaPayload.h"
 
-    void setup() {
-      // Initialize the NyarkoaPayload instance
-      NyarkoaPayload nyarkoa;
+  void setup() {
+    // Initialize the NyarkoaPayload instance
+    NyarkoaPayload nyarkoa;
 
-      // Define the analog pin and output value
-      byte pinNumber = A1;
-      int outputValue = 128;  // Any value between 0 and 255
+    // Define the analog pin and output value
+    byte pinNumber = A1;
+    int outputValue = 128;  // Any value between 0 and 255
 
-      // Set the analog output value
-      nyarkoa.setAnalogValue(pinNumber, outputValue);
+    // Set the analog output value
+    nyarkoa.setAnalogValue(pinNumber, outputValue);
 
-      // Your setup code here
-    }
+    // Your setup code here
+  }
 
-    void loop() {
-      // Your loop code here
-    }
-    ```
+  void loop() {
+    // Your loop code here
+  }
+  ```
 
 ## Actions
 
@@ -503,27 +480,27 @@ void loop() {
 
 - #### Sample Code: How to Use the `commAction` Method
 
-    ```cpp
-    #include <Arduino.h>
-    #include "NyarkoaPayload.h"
+  ```cpp
+  #include <Arduino.h>
+  #include "NyarkoaPayload.h"
 
-    void setup() {
-      // Initialize the NyarkoaPayload instance
-      NyarkoaPayload nyarkoa;
+  void setup() {
+    // Initialize the NyarkoaPayload instance
+    NyarkoaPayload nyarkoa;
 
-      // Define the command to perform
-      String command = "CONNECT_DEVICE";
+    // Define the command to perform
+    String command = "CONNECT_DEVICE";
 
-      // Perform the communication action
-      nyarkoa.commAction(command);
+    // Perform the communication action
+    nyarkoa.commAction(command);
 
-      // Your setup code here
-    }
+    // Your setup code here
+  }
 
-    void loop() {
-      // Your loop code here
-    }
-    ```
+  void loop() {
+    // Your loop code here
+  }
+  ```
 
 ### requestAction(String cmd)
 
@@ -536,30 +513,30 @@ void loop() {
 
 - #### Sample Code: How to Use the `requestAction` Method
 
-    ```cpp
-    #include <Arduino.h>
-    #include "NyarkoaPayload.h"
+  ```cpp
+  #include <Arduino.h>
+  #include "NyarkoaPayload.h"
 
-    void setup() {
-      // Initialize the NyarkoaPayload instance
-      NyarkoaPayload nyarkoa;
+  void setup() {
+    // Initialize the NyarkoaPayload instance
+    NyarkoaPayload nyarkoa;
 
-      // Define the command for the request
-      String requestCommand = "GET_DATA";
+    // Define the command for the request
+    String requestCommand = "GET_DATA";
 
-      // Send the request with the command and receive the response
-      String response = nyarkoa.requestAction(requestCommand);
+    // Send the request with the command and receive the response
+    String response = nyarkoa.requestAction(requestCommand);
 
-      // Process the response
-      Serial.println("Response received: " + response);
+    // Process the response
+    Serial.println("Response received: " + response);
 
-      // Your setup code here
-    }
+    // Your setup code here
+  }
 
-    void loop() {
-      // Your loop code here
-    }
-    ```
+  void loop() {
+    // Your loop code here
+  }
+  ```
 
 ### ejectBalloon()
 
@@ -569,24 +546,24 @@ void loop() {
 
 - #### Sample Code: How to Use the `ejectBalloon` Method
 
-    ```cpp
-    #include <Arduino.h>
-    #include "NyarkoaPayload.h"
+  ```cpp
+  #include <Arduino.h>
+  #include "NyarkoaPayload.h"
 
-    void setup() {
-      // Initialize the NyarkoaPayload instance
-      NyarkoaPayload nyarkoa;
+  void setup() {
+    // Initialize the NyarkoaPayload instance
+    NyarkoaPayload nyarkoa;
 
-      // Activate the balloon ejection mechanism
-      nyarkoa.ejectBalloon();
+    // Activate the balloon ejection mechanism
+    nyarkoa.ejectBalloon();
 
-      // Your setup code here
-    }
+    // Your setup code here
+  }
 
-    void loop() {
-      // Your loop code here
-    }
-    ```
+  void loop() {
+    // Your loop code here
+  }
+  ```
 
 ### alert(unsigned long duration = 100)
 
@@ -599,24 +576,24 @@ void loop() {
 
 - #### Sample Code: How to Use the `alert` Method
 
-    ```cpp
-    #include <Arduino.h>
-    #include "NyarkoaPayload.h"
+  ```cpp
+  #include <Arduino.h>
+  #include "NyarkoaPayload.h"
 
-    void setup() {
-      // Initialize the NyarkoaPayload instance
-      NyarkoaPayload nyarkoa;
+  void setup() {
+    // Initialize the NyarkoaPayload instance
+    NyarkoaPayload nyarkoa;
 
-      // Trigger a 500ms alert
-      nyarkoa.alert(500);
+    // Trigger a 500ms alert
+    nyarkoa.alert(500);
 
-      // Your setup code here
-    }
+    // Your setup code here
+  }
 
-    void loop() {
-      // Your loop code here
-    }
-    ```
+  void loop() {
+    // Your loop code here
+  }
+  ```
 
 ### enableBeacon()
 
@@ -626,24 +603,24 @@ void loop() {
 
 - #### Sample Code: How to Enable the Beacon
 
-    ```cpp
-    #include <Arduino.h>
-    #include "NyarkoaPayload.h"
+  ```cpp
+  #include <Arduino.h>
+  #include "NyarkoaPayload.h"
 
-    void setup() {
-      // Initialize the NyarkoaPayload instance
-      NyarkoaPayload nyarkoa;
+  void setup() {
+    // Initialize the NyarkoaPayload instance
+    NyarkoaPayload nyarkoa;
 
-      // Enable the beacon feature
-      nyarkoa.enableBeacon();
+    // Enable the beacon feature
+    nyarkoa.enableBeacon();
 
-      // Your setup code here
-    }
+    // Your setup code here
+  }
 
-    void loop() {
-      // Your loop code here
-    }
-    ```
+  void loop() {
+    // Your loop code here
+  }
+  ```
 
 ### disableBeacon()
 
@@ -653,24 +630,24 @@ void loop() {
 
 - #### Sample Code: How to Disable the Beacon
 
-    ```cpp
-    #include <Arduino.h>
-    #include "NyarkoaPayload.h"
+  ```cpp
+  #include <Arduino.h>
+  #include "NyarkoaPayload.h"
 
-    void setup() {
-      // Initialize the NyarkoaPayload instance
-      NyarkoaPayload nyarkoa;
+  void setup() {
+    // Initialize the NyarkoaPayload instance
+    NyarkoaPayload nyarkoa;
 
-      // Disable the beacon feature
-      nyarkoa.disableBeacon();
+    // Disable the beacon feature
+    nyarkoa.disableBeacon();
 
-      // Your setup code here
-    }
+    // Your setup code here
+  }
 
-    void loop() {
-      // Your loop code here
-    }
-    ```
+  void loop() {
+    // Your loop code here
+  }
+  ```
 
 ### getDate()
 
@@ -680,27 +657,27 @@ void loop() {
 
 - #### Sample Code: How to Get the Current Date
 
-    ```cpp
-    #include <Arduino.h>
-    #include "NyarkoaPayload.h"
+  ```cpp
+  #include <Arduino.h>
+  #include "NyarkoaPayload.h"
 
-    void setup() {
-      // Initialize the NyarkoaPayload instance
-      NyarkoaPayload nyarkoa;
+  void setup() {
+    // Initialize the NyarkoaPayload instance
+    NyarkoaPayload nyarkoa;
 
-      // Get the current date
-      String currentDate = nyarkoa.getDate();
+    // Get the current date
+    String currentDate = nyarkoa.getDate();
 
-      // Print the current date to the Serial Monitor
-      Serial.println("Current Date: " + currentDate);
+    // Print the current date to the Serial Monitor
+    Serial.println("Current Date: " + currentDate);
 
-      // Your setup code here
-    }
+    // Your setup code here
+  }
 
-    void loop() {
-      // Your loop code here
-    }
-    ```
+  void loop() {
+    // Your loop code here
+  }
+  ```
 
 ### getTime()
 
@@ -710,27 +687,27 @@ void loop() {
 
 - #### Sample Code: How to Get the Current Time
 
-    ```cpp
-    #include <Arduino.h>
-    #include "NyarkoaPayload.h"
+  ```cpp
+  #include <Arduino.h>
+  #include "NyarkoaPayload.h"
 
-    void setup() {
-      // Initialize the NyarkoaPayload instance
-      NyarkoaPayload nyarkoa;
+  void setup() {
+    // Initialize the NyarkoaPayload instance
+    NyarkoaPayload nyarkoa;
 
-      // Get the current time
-      String currentTime = nyarkoa.getTime();
+    // Get the current time
+    String currentTime = nyarkoa.getTime();
 
-      // Print the current time to the Serial Monitor
-      Serial.println("Current Time: " + currentTime);
+    // Print the current time to the Serial Monitor
+    Serial.println("Current Time: " + currentTime);
 
-      // Your setup code here
-    }
+    // Your setup code here
+  }
 
-    void loop() {
-      // Your loop code here
-    }
-    ```
+  void loop() {
+    // Your loop code here
+  }
+  ```
 
 ### getTimestamp()
 
@@ -740,27 +717,27 @@ void loop() {
 
 - #### Sample Code: How to Get the Current Timestamp
 
-    ```cpp
-    #include <Arduino.h>
-    #include "NyarkoaPayload.h"
+  ```cpp
+  #include <Arduino.h>
+  #include "NyarkoaPayload.h"
 
-    void setup() {
-      // Initialize the NyarkoaPayload instance
-      NyarkoaPayload nyarkoa;
+  void setup() {
+    // Initialize the NyarkoaPayload instance
+    NyarkoaPayload nyarkoa;
 
-      // Get the current timestamp
-      String timestamp = nyarkoa.getTimestamp();
+    // Get the current timestamp
+    String timestamp = nyarkoa.getTimestamp();
 
-      // Print the current timestamp to the Serial Monitor
-      Serial.println("Current Timestamp: " + timestamp);
+    // Print the current timestamp to the Serial Monitor
+    Serial.println("Current Timestamp: " + timestamp);
 
-      // Your setup code here
-    }
+    // Your setup code here
+  }
 
-    void loop() {
-      // Your loop code here
-    }
-    ```
+  void loop() {
+    // Your loop code here
+  }
+  ```
 
 ### getTimeAfter(int sec = 30, int mins = 0, int hours = 0, int days = 0)
 
@@ -776,33 +753,33 @@ void loop() {
 
 - #### Sample Code: How to Calculate a Future Timestamp
 
-    ```cpp
-    #include <Arduino.h>
-    #include "NyarkoaPayload.h"
+  ```cpp
+  #include <Arduino.h>
+  #include "NyarkoaPayload.h"
 
-    void setup() {
-      // Initialize the NyarkoaPayload instance
-      NyarkoaPayload nyarkoa;
+  void setup() {
+    // Initialize the NyarkoaPayload instance
+    NyarkoaPayload nyarkoa;
 
-      // Define the time intervals for the future timestamp
-      int secondsToAdd = 60; // 60 seconds
-      int minutesToAdd = 5; // 5 minutes
-      int hoursToAdd = 1;   // 1 hour
-      int daysToAdd = 2;    // 2 days
+    // Define the time intervals for the future timestamp
+    int secondsToAdd = 60; // 60 seconds
+    int minutesToAdd = 5; // 5 minutes
+    int hoursToAdd = 1;   // 1 hour
+    int daysToAdd = 2;    // 2 days
 
-      // Calculate the future timestamp
-      String futureTimestamp = nyarkoa.getTimeAfter(secondsToAdd, minutesToAdd, hoursToAdd, daysToAdd);
+    // Calculate the future timestamp
+    String futureTimestamp = nyarkoa.getTimeAfter(secondsToAdd, minutesToAdd, hoursToAdd, daysToAdd);
 
-      // Print the future timestamp to the Serial Monitor
-      Serial.println("Future Timestamp (ms): " + futureTimestamp);
+    // Print the future timestamp to the Serial Monitor
+    Serial.println("Future Timestamp (ms): " + futureTimestamp);
 
-      // Your setup code here
-    }
+    // Your setup code here
+  }
 
-    void loop() {
-      // Your loop code here
-    }
-    ```
+  void loop() {
+    // Your loop code here
+  }
+  ```
 
 ### getMPLData()
 
@@ -816,29 +793,29 @@ void loop() {
 
 - #### Sample Code: How to Retrieve MPL Data
 
-    ```cpp
-    #include <Arduino.h>
-    #include "NyarkoaPayload.h"
+  ```cpp
+  #include <Arduino.h>
+  #include "NyarkoaPayload.h"
 
-    void setup() {
-      // Initialize the NyarkoaPayload instance
-      NyarkoaPayload nyarkoa;
+  void setup() {
+    // Initialize the NyarkoaPayload instance
+    NyarkoaPayload nyarkoa;
 
-      // Retrieve MPL data
-      MPLData mplData = nyarkoa.getMPLData();
+    // Retrieve MPL data
+    MPLData mplData = nyarkoa.getMPLData();
 
-      // Display MPL data
-      Serial.println("Atmospheric Pressure (Pa): " + String(mplData.pressure));
-      Serial.println("Altitude (m): " + String(mplData.altitude));
-      Serial.println("Temperature (°C): " + String(mplData.temperature));
+    // Display MPL data
+    Serial.println("Atmospheric Pressure (Pa): " + String(mplData.pressure));
+    Serial.println("Altitude (m): " + String(mplData.altitude));
+    Serial.println("Temperature (°C): " + String(mplData.temperature));
 
-      // Your setup code here
-    }
+    // Your setup code here
+  }
 
-    void loop() {
-      // Your loop code here
-    }
-    ```
+  void loop() {
+    // Your loop code here
+  }
+  ```
 
 ### getGPSData()
 
@@ -856,33 +833,33 @@ void loop() {
 
 - #### Sample Code: How to Retrieve GPS Data
 
-    ```cpp
-    #include <Arduino.h>
-    #include "NyarkoaPayload.h"
+  ```cpp
+  #include <Arduino.h>
+  #include "NyarkoaPayload.h"
 
-    void setup() {
-      // Initialize the NyarkoaPayload instance
-      NyarkoaPayload nyarkoa;
+  void setup() {
+    // Initialize the NyarkoaPayload instance
+    NyarkoaPayload nyarkoa;
 
-      // Retrieve GPS data
-      GPSData gpsData = nyarkoa.getGPSData();
+    // Retrieve GPS data
+    GPSData gpsData = nyarkoa.getGPSData();
 
-      // Display GPS data
-      Serial.println("Number of Satellites: " + gpsData.nSats);
-      Serial.println("Latitude: " + gpsData.lat);
-      Serial.println("Longitude: " + gpsData.lon);
-      Serial.println("Date: " + gpsData.date);
-      Serial.println("Time: " + gpsData.time);
-      Serial.println("Speed: " + gpsData.speed);
-      Serial.println("Distance from Home: " + gpsData.distanceFromHome);
+    // Display GPS data
+    Serial.println("Number of Satellites: " + gpsData.nSats);
+    Serial.println("Latitude: " + gpsData.lat);
+    Serial.println("Longitude: " + gpsData.lon);
+    Serial.println("Date: " + gpsData.date);
+    Serial.println("Time: " + gpsData.time);
+    Serial.println("Speed: " + gpsData.speed);
+    Serial.println("Distance from Home: " + gpsData.distanceFromHome);
 
-      // Your setup code here
-    }
+    // Your setup code here
+  }
 
-    void loop() {
-      // Your loop code here
-    }
-    ```
+  void loop() {
+    // Your loop code here
+  }
+  ```
 
 ## License
 
@@ -895,10 +872,8 @@ void loop() {
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 1. The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
 2. **Author and Contact Information:**
 
    - **Author:** Eric Obeng (Profesir) @Erictronics Systems
    - **Email:** [Write to me](mailto:professor.obeng@gmail.com)
-
 3. The software, code, and documentation are provided "as is," without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the software or the use or other dealings in the software.
