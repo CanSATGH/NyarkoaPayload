@@ -10,9 +10,9 @@ The shell includes a `battery manager and power supply unit` to ensure that the 
 
 The CanSAT shell consists of four independent units:
 
-1. The `Communication and Control Unit` (insert image here)
+1. The `Communication and Control Unit`
 ![Nyarkoa CanSAT Communication and Control unit top](images/comm_module_top.jpg)
-2. The `Payload Controller and Shield` (insert image here)
+2. The `Payload Controller and Shield`
 ![Nyarkoa CanSAT Communication and Control unit bottom](images/comm_module_bottom.jpg)
 3. The `Battery Manager and Power Supply Unit`
 4. The `GPS and Ejector Unit`
