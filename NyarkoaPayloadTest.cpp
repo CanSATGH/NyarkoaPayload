@@ -98,9 +98,7 @@ bool NyarkoaPayloadTest::compareHash(String data, String hash) {
  * This method reads and discards any available data from the serial
  * communication buffer.
  */
-void NyarkoaPayloadTest::clearSerial() {
-  debug("Serial cleared");
-}
+void NyarkoaPayloadTest::clearSerial() { debug("Serial cleared"); }
 
 /**
  * Execute a command and handle the response.
@@ -108,11 +106,7 @@ void NyarkoaPayloadTest::clearSerial() {
  * @param cmd The command to execute.
  * @return A Response object with success status and message.
  */
-Response NyarkoaPayloadTest::executeCmd(String cmd, bool generateError) {
-  if (generateError) {
-    debug("Command execution failed.");
-    return {.isOk = false, .message = "ERROR"};
-  }
+Response NyarkoaPayloadTest::executeCmd(String cmd) {
   return {.isOk = true, .message = "OK"};
 }
 
@@ -132,12 +126,8 @@ Response NyarkoaPayloadTest::executeCmd(String cmd, bool generateError) {
  * fail or if the hash doesn't match, it returns a Response object with 'isOk'
  * set to false, and a message indicating failure.
  */
-Response NyarkoaPayloadTest::request(String req, bool generateError) {
-  if (generateError) {
-    debug("Request error");
-    return {.isOk = false, .message = "ERROR"};
-  }
-  return {.isOk = true, .message = "Response"};
+Response NyarkoaPayloadTest::request(String req) {
+  return {.isOk = true, .message = "Sample Response"};
 }
 
 /**
@@ -152,14 +142,7 @@ Response NyarkoaPayloadTest::request(String req, bool generateError) {
  * to allow for data transmission. Use this method to send commands or data to
  * the communication module.
  */
-void NyarkoaPayloadTest::transmit(String data, bool generateError) {
-  if (generateError) {
-    debug("ERROR: Transmit failed.");
-    return;
-  }
-
-  debug("Transmitting data.");
-}
+void NyarkoaPayloadTest::transmit(String data) { debug("Transmitting data."); }
 
 /**
  * Receive data from the serial communication.
@@ -174,14 +157,7 @@ void NyarkoaPayloadTest::transmit(String data, bool generateError) {
  * whitespace, and returns it as a string. Use this method to retrieve responses
  * or data from the communication module.
  */
-String NyarkoaPayloadTest::receive(bool generateError) {
-  if (generateError) {
-    debug("ERROR: Receive failed.");
-    return "ERROR";
-  }
-
-  return "Received data.";
-}
+String NyarkoaPayloadTest::receive() { return "Received data."; }
 
 /**
  * Connect to the communication module.
@@ -199,13 +175,7 @@ String NyarkoaPayloadTest::receive(bool generateError) {
  * "OK," it returns a response object with "CRC Error." Use this method to
  * establish a connection with the communication module.
  */
-Response NyarkoaPayloadTest::connect(bool generateError) {
-  // Simulate an error if needed
-  if (generateError) {
-    debug("ERROR: Unable to connect to the communication module.");
-    return {.isOk = false, .message = "ERROR"};
-  }
-
+Response NyarkoaPayloadTest::connect() {
   // Simulated response on success
   return {.isOk = true, .message = "\nSystem Online"};
 }
@@ -223,7 +193,7 @@ Response NyarkoaPayloadTest::connect(bool generateError) {
  * object with details. Use this method to start the communication module and
  * connect to it.
  */
-Response NyarkoaPayloadTest::startCommunication(bool generateError) {
+Response NyarkoaPayloadTest::connectToCommModule(bool generateError) {
   // Simulate an error if needed
   if (generateError) {
     debug("ERROR: Unable to start communication module.");
@@ -397,6 +367,18 @@ void NyarkoaPayloadTest::commAction(String cmd, bool generateError) {
   if (response.isOk) {
     debug("OK");
   }
+}
+
+
+/**
+ * Read an analog value from the specified pin and return a random unsigned integer.
+ * 
+ * @param pin The analog pin to read.
+ * @return An unsigned integer (0 to 65535) representing the value read from the adc.
+ */
+unsigned int NyarkoaPayloadTest::readADC(byte pin) {
+  randomSeed(analogRead(A0));
+  return random(65535);
 }
 
 /**
