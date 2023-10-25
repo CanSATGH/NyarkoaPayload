@@ -230,7 +230,6 @@ bool NyarkoaPayloadTest::pinInfo(byte pin) {
 
   for (size_t i = 0; i < sizeof(specialPins) / sizeof(specialPins[0]); i++) {
     if (pin == specialPins[i]) {
-      debug("Pin #" + String(pin) + " is special: " + specialMessages[i]);
       if (pin == commUARTPins.Rx || pin == commUARTPins.Tx) {
         debug("ERROR: Pin #" + String(pin) +
               " is special: " + specialMessages[i]);
