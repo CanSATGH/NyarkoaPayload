@@ -179,5 +179,4 @@ class NyarkoaPayloadTest {
   GPSData getGPSData(bool generateError = false);
 };
 
-extern NyarkoaPayloadTest nyarkoa;
 #endif

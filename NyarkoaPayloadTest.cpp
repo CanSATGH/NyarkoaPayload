@@ -685,4 +685,3 @@ GPSData NyarkoaPayloadTest::getGPSData(bool generateError) {
   };
 }
 
-NyarkoaPayloadTest nyarkoa;

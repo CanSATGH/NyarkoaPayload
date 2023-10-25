@@ -175,5 +175,5 @@ class NyarkoaPayload {
   MPLData getMPLData();
   GPSData getGPSData();
 };
-extern NyarkoaPayload nyarkoa;
+
 #endif

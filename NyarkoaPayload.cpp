@@ -670,5 +670,3 @@ GPSData NyarkoaPayload::getGPSData() {
           .speed = values[5],
           .distanceFromHome = values[6]};
 }
-
-NyarkoaPayload nyarkoa;
