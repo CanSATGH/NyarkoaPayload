@@ -97,18 +97,17 @@ class NyarkoaPayloadTest {
   const int UNASSIGNED_PIN{-1};
   CommUART commUARTPins = {.Rx = 5, .Tx = 4};
 
-  bool pinInfo(byte pin);  
   void clearSerial();
-  
+
   // Transmission functions
   void transmit(String data);
   Response request(String req);
   Response executeCmd(String cmd);
   String receive();
-  Response connect();  
+  Response connect();
   unsigned int readADC(byte pin);
 
- public: 
+ public:
   const unsigned long UART_BAUD_RATE{115200};
   NyarkoaPayloadTest();
   // Pin declarations
@@ -138,7 +137,7 @@ class NyarkoaPayloadTest {
                      .distanceFromHome = ""};
 
   ~NyarkoaPayloadTest();
-
+  bool pinInfo(byte pin);
   // Delete copy constructor
   NyarkoaPayloadTest(const NyarkoaPayloadTest &obj) = delete;
   static NyarkoaPayloadTest *getInstance();
@@ -158,7 +157,6 @@ class NyarkoaPayloadTest {
   void setPinMode(byte pin, bool mode);
   void digitalWrite(byte pin, bool mode);
   void setAnalogValue(byte pin, int value);
-
 
   // Action Methods
   void commAction(String cmd, bool generateError = false);

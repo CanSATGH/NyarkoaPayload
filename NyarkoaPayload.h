@@ -97,7 +97,6 @@ class NyarkoaPayload {
   const int UNASSIGNED_PIN{-1};
   CommUART commUARTPins = {.Rx = 5, .Tx = 4};
 
-  bool pinInfo(byte pin);
   void clearSerial();
   Response executeCmd(String cmd);
   Response request(String req);
@@ -107,7 +106,7 @@ class NyarkoaPayload {
   // unsigned int readADC(byte pin);
 
  public:
-   const unsigned long UART_BAUD_RATE{115200};
+  const unsigned long UART_BAUD_RATE{115200};
   NyarkoaPayload();
   // Pin declarations
   const byte LED{13};
@@ -136,7 +135,7 @@ class NyarkoaPayload {
                      .distanceFromHome = ""};
 
   ~NyarkoaPayload();
-
+  bool pinInfo(byte pin);
   // Delete copy constructor
   NyarkoaPayload(const NyarkoaPayload &obj) = delete;
   static NyarkoaPayload getInstance();
