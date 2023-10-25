@@ -91,7 +91,6 @@ class NyarkoaPayload {
 
   // Generic variable declarations
   bool DEBUG{true};
-  const unsigned long UART_BAUD_RATE{115200};
   const unsigned long SERIAL_TIMEOUT{10000};
   const unsigned long CONNECT_SERIAL_TIMEOUT{30000};
 
@@ -105,9 +104,10 @@ class NyarkoaPayload {
   void transmit(String data);
   String receive();
   Response connect();
-  unsigned int readADC(byte pin);
+  // unsigned int readADC(byte pin);
 
  public:
+   const unsigned long UART_BAUD_RATE{115200};
   NyarkoaPayload();
   // Pin declarations
   const byte LED{13};

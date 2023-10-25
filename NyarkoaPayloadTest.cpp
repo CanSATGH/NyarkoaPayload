@@ -684,3 +684,5 @@ GPSData NyarkoaPayloadTest::getGPSData(bool generateError) {
       .distanceFromHome = String(random(0, 1000), DEC),  // Random distance
   };
 }
+
+NyarkoaPayloadTest nyarkoa;

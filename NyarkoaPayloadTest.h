@@ -91,7 +91,6 @@ class NyarkoaPayloadTest {
 
   // Generic variable declarations
   bool DEBUG{true};
-  const unsigned long UART_BAUD_RATE{115200};
   const unsigned long SERIAL_TIMEOUT{10000};
   const unsigned long CONNECT_SERIAL_TIMEOUT{30000};
 
@@ -109,7 +108,8 @@ class NyarkoaPayloadTest {
   Response connect();  
   unsigned int readADC(byte pin);
 
- public:
+ public: 
+  const unsigned long UART_BAUD_RATE{115200};
   NyarkoaPayloadTest();
   // Pin declarations
   const byte LED{13};
@@ -178,4 +178,6 @@ class NyarkoaPayloadTest {
   MPLData getMPLData(bool generateError = false);
   GPSData getGPSData(bool generateError = false);
 };
+
+extern NyarkoaPayloadTest nyarkoa;
 #endif
