@@ -232,8 +232,12 @@ bool NyarkoaPayloadTest::pinInfo(byte pin) {
     if (pin == specialPins[i]) {
       debug("Pin #" + String(pin) + " is special: " + specialMessages[i]);
       if (pin == commUARTPins.Rx || pin == commUARTPins.Tx) {
+        debug("ERROR: Pin #" + String(pin) +
+              " is special: " + specialMessages[i]);
         return false;
       } else {
+        debug("WARNING: Pin #" + String(pin) +
+              " is special: " + specialMessages[i]);
         break;
       }
     }
@@ -369,12 +373,13 @@ void NyarkoaPayloadTest::commAction(String cmd, bool generateError) {
   }
 }
 
-
 /**
- * Read an analog value from the specified pin and return a random unsigned integer.
- * 
+ * Read an analog value from the specified pin and return a random unsigned
+ * integer.
+ *
  * @param pin The analog pin to read.
- * @return An unsigned integer (0 to 65535) representing the value read from the adc.
+ * @return An unsigned integer (0 to 65535) representing the value read from the
+ * adc.
  */
 unsigned int NyarkoaPayloadTest::readADC(byte pin) {
   randomSeed(analogRead(A0));
@@ -684,4 +689,3 @@ GPSData NyarkoaPayloadTest::getGPSData(bool generateError) {
       .distanceFromHome = String(random(0, 1000), DEC),  // Random distance
   };
 }
-
